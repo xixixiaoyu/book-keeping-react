@@ -3,7 +3,7 @@
 ## 开发
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ## 部署
