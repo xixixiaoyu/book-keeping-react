@@ -1,23 +1,23 @@
-import { Outlet, createHashRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
+import { Root } from '../components/Root'
 import { WelcomeLayout } from '../layouts/WelcomeLayout'
+import { Home } from '../pages/Home'
+import { Welcome1 } from '../pages/Welcome1'
+import { Welcome2 } from '../pages/Welcome2'
+import { Welcome3 } from '../pages/Welcome3'
+import { Welcome4 } from '../pages/Welcome4'
 
-export const router = createHashRouter([{
-  path: '/',
-  element: <Outlet />,
-  // 知识点：errorElement 用来指定找不到匹配时的渲染组件
-  errorElement: <div>404</div>,
-  children: [
-    { index: true, element: <div>Home</div> },
-    {
-      path: 'welcome',
-      element: <WelcomeLayout />,
-      children: [
-        { index: true, element: <div>Welcome</div> },
-        { path: '1', element: <div style={{ border: '1px solid red' }}>1</div> },
-        { path: '2', element: <div style={{ border: '1px solid red' }}>2</div> },
-        { path: '3', element: <div style={{ border: '1px solid red' }}>3</div> },
-        { path: '4', element: <div style={{ border: '1px solid red' }}>4</div> },
-      ]
-    },
-  ]
-}])
+export const router = createBrowserRouter([
+  { path: '/', element: <Root />, },
+  { path: '/home', element: <Home /> },
+  {
+    path: '/welcome',
+    element: <WelcomeLayout />,
+    children: [
+      { path: '1', element: <Welcome1 /> },
+      { path: '2', element: <Welcome2 /> },
+      { path: '3', element: <Welcome3 /> },
+      { path: '4', element: <Welcome4 /> },
+    ]
+  },
+])
