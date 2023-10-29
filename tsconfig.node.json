@@ -5,5 +5,9 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
+<<<<<<< HEAD
   "include": ["vite.config.ts"]
+=======
+  "include": ["vite.config.ts", "vite_plugins"]
+>>>>>>> master
 }

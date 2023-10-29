@@ -2,7 +2,19 @@
   "extends": "@antfu",
   "rules": {
     "curly": "off",
+<<<<<<< HEAD
     "@typescript-eslint/brace-style": "off",
+=======
+    "arrow-parens": "off",
+    "symbol-description": "off",
+    "new-parens": "off",
+    "object-property-newline": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/brace-style": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+>>>>>>> master
     "@typescript-eslint/no-unused-vars": [
       "error",
       {

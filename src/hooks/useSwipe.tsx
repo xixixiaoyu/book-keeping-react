@@ -7,15 +7,26 @@ interface Config {
   onTouchEnd?: (e: TouchEvent) => void
 }
 export const useSwipe = (elementRef: RefObject<HTMLElement>, config?: Config) => {
+<<<<<<< HEAD
   const [direction, setDirection] = useState<'' | 'left' | 'right'>('')
   const x = useRef(-1)
   const onTouchStart = (e: TouchEvent) => {
     config?.onTouchStart?.(e)
     x.current = e.touches[0].clientX
+=======
+  const [direction, setDirection] = useState<'' | 'left' | 'right' | 'up' | 'down'>('')
+  const x = useRef(-1)
+  const y = useRef(-1)
+  const onTouchStart = (e: TouchEvent) => {
+    config?.onTouchStart?.(e)
+    x.current = e.touches[0].clientX
+    y.current = e.touches[0].clientY
+>>>>>>> master
   }
   const onTouchMove = (e: TouchEvent) => {
     config?.onTouchMove?.(e)
     const newX = e.touches[0].clientX
+<<<<<<< HEAD
     const d = newX - x.current
     if (Math.abs(d) < 3) {
       setDirection('')
@@ -23,6 +34,27 @@ export const useSwipe = (elementRef: RefObject<HTMLElement>, config?: Config) =>
       setDirection('right')
     } else {
       setDirection('left')
+=======
+    const newY = e.touches[0].clientY
+    const dx = newX - x.current
+    const dy = newY - y.current
+    if (Math.abs(dx) > Math.abs(dy)) {
+      if (Math.abs(dx) < 3) {
+        setDirection('')
+      } else if (dx > 0) {
+        setDirection('right')
+      } else {
+        setDirection('left')
+      }
+    } else {
+      if (Math.abs(dy) < 3) {
+        setDirection('')
+      } else if (dy > 0) {
+        setDirection('down')
+      } else {
+        setDirection('up')
+      }
+>>>>>>> master
     }
   }
   const onTouchEnd = (e: TouchEvent) => {

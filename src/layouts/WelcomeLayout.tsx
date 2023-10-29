@@ -1,7 +1,11 @@
 import { animated, useTransition } from '@react-spring/web'
 import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
+<<<<<<< HEAD
 import { Link, useLocation, useNavigate, useOutlet } from 'react-router-dom'
+=======
+import { useLocation, useNavigate, useOutlet } from 'react-router-dom'
+>>>>>>> master
 import logo from '../assets/images/logo.svg'
 import { useSwipe } from '../hooks/useSwipe'
 import { useLocalStore } from '../stores/useLocalStore'
@@ -9,7 +13,11 @@ const linkMap: Record<string, string> = {
   '/welcome/1': '/welcome/2',
   '/welcome/2': '/welcome/3',
   '/welcome/3': '/welcome/4',
+<<<<<<< HEAD
   '/welcome/4': '/welcome/xxx',
+=======
+  '/welcome/4': '/home',
+>>>>>>> master
 }
 export const WelcomeLayout: React.FC = () => {
   const animating = useRef(false)
@@ -32,7 +40,11 @@ export const WelcomeLayout: React.FC = () => {
     }
   })
   const main = useRef<HTMLElement>(null)
+<<<<<<< HEAD
   const { direction } = useSwipe(main, { onTouchStart: e => e.preventDefault() })
+=======
+  const { direction } = useSwipe(main)
+>>>>>>> master
   const nav = useNavigate()
   useEffect(() => {
     if (direction === 'left') {
@@ -44,9 +56,17 @@ export const WelcomeLayout: React.FC = () => {
   const { setHasReadWelcomes } = useLocalStore()
   const onSkip = () => {
     setHasReadWelcomes(true)
+<<<<<<< HEAD
   }
   return (
     <div className="bg-#5f34bf" h-screen flex flex-col items-stretch pb-16px>
+=======
+    nav('/home')
+  }
+  return (
+    <div className="bg-#5f34bf" h-screen flex flex-col items-stretch pb-16px>
+      <span fixed text-white top-16px right-16px text-32px onClick={onSkip}>跳过</span>
+>>>>>>> master
       <header shrink-0 text-center pt-64px>
         <img src={logo} w-64px h-69px />
         <h1 text="#D4D4EE" text-32px>山竹记账</h1>
@@ -60,10 +80,13 @@ export const WelcomeLayout: React.FC = () => {
           </animated.div>
         )}
       </main>
+<<<<<<< HEAD
       <footer shrink-0 text-center text-24px text-white grid grid-cols-3 grid-rows-1>
         <Link style={{ gridArea: '1 / 2 / 2 / 3' }} to={linkMap[location.pathname]}>下一页</Link>
         <Link style={{ gridArea: '1 / 3 / 2 / 4' }} to="/home" onClick={onSkip}>跳过</Link>
       </footer>
+=======
+>>>>>>> master
     </div>
   )
 }
